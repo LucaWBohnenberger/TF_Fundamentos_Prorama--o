@@ -146,7 +146,7 @@ public class AppIntegrada {
         String cpf = in.nextLine();
         Pessoa p = LISTAPESSOAS.buscaPessoaPorCpf(cpf);
         if (p != null) {
-            System.out.println("Digite o nome da doação:");
+            System.out.println("Digite a descrição da doação:");
             String nomeDoacao = in.nextLine();
             Doacao d = LISTADOACOES.buscaDoacaoPorDescricao(nomeDoacao);
             if (d != null) {
