@@ -54,8 +54,9 @@ public class ListaDoacoes {
     }
 
     public Doacao buscaDoacaoPorDescricao(String descricao) {
+        descricao = descricao.toLowerCase();
         for (int i = 0; i < index; i++) {
-            if (listaDoacoes[i].getDescricao().equals(descricao)) {
+            if (listaDoacoes[i].getDescricao().toLowerCase().equals(descricao)) {
                 return listaDoacoes[i];
             }
         }

@@ -209,6 +209,6 @@ public class Pessoa {
 
     public String toString() {
         return "Nome: " + getNome() + "\nCPF: " + getCpfFormatado() + "\nemail: " + getEmail() + "\nTelefone: "
-                + getTelefone() + "\n";
+                + getTelefone() + "\n" + "Lista de doações recebidas:" + "\n" + listaDeDoacoesRecebidas.toString();
     }
 }

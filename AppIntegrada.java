@@ -8,13 +8,12 @@ import java.util.Scanner;
 
 public class AppIntegrada {
 
-    private static final ListaPessoas LISTAPESSOAS = new ListaPessoas();
-    private static final ListaDoacoes LISTADOACOES = new ListaDoacoes();
+    private static ListaPessoas LISTAPESSOAS = new ListaPessoas();
+    private static ListaDoacoes LISTADOACOES = new ListaDoacoes();
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int opcao;
-        String str_opcao;
         do {
             imprimeMenuPrincipal();
             opcao = opcao(in);
@@ -153,8 +152,11 @@ public class AppIntegrada {
                 System.out.println("Digite a quantidade:");
                 int quantidade = opcao(in);
                 if (d.getQuantidade() >= quantidade) {
-                    LISTADOACOES.removeQuantidade(d.getDescricao(), quantidade);
+                    LISTADOACOES.removeQuantidade(d.getCodigoDaDoacao(), quantidade);
+                    d.setQuantidade(d.getQuantidade() - quantidade);
+                    LISTAPESSOAS.adicionarDoacaoPessoa(cpf, d);
                     System.out.println("Doação realizada com sucesso!");
+                    System.out.println("A " + p.getNome() + " recebeu " + quantidade + " " + d.getDescricao() + "!");
                 } else {
                     System.err.println("Quantidade insuficiente!");
                 }

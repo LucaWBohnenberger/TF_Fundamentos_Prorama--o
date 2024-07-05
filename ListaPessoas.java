@@ -91,6 +91,19 @@ public class ListaPessoas {
 
     }
 
+    
+    public boolean adicionarDoacaoPessoa(String cpf, Doacao doacao) {
+        cpf = cpf.replaceAll("[^0-9]", "");
+
+        for (int i = 0; i < index; i++) {
+            if (listaPessoas[i].getCpf().equals(cpf)) {
+                listaPessoas[i].adicionaDoacao(doacao);
+                return true;
+            }
+        }
+        return false;
+    }
+
     public String listarOrdenadoCpf(){
         String retorno = "";
         Pessoa[] listaOrdenada = ordenaPorCpf();
